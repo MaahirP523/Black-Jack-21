@@ -13,7 +13,7 @@ import uuid
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 HOST = "0.0.0.0"
-PORT = 4173
+PORT = int(os.environ.get("PORT", 4173))
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "public")
 ROOMS: dict[str, "Room"] = {}
 CLIENTS: dict[str, "Client"] = {}
