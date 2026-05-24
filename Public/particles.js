@@ -1,6 +1,0 @@
-﻿export class Particles {
-  constructor(canvas) { this.canvas = canvas; this.ctx = canvas.getContext("2d"); this.items = []; this.resize(); window.addEventListener("resize", () => this.resize()); requestAnimationFrame(() => this.tick()); }
-  resize() { this.canvas.width = window.innerWidth * devicePixelRatio; this.canvas.height = window.innerHeight * devicePixelRatio; this.ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0); }
-  burst(count = 80) { for (let i = 0; i < count; i += 1) this.items.push({ x: window.innerWidth / 2, y: window.innerHeight * 0.42, vx: (Math.random() - 0.5) * 10, vy: -Math.random() * 8 - 2, life: 90 + Math.random() * 50, size: 3 + Math.random() * 6, color: ["#f8d878", "#1ff3a5", "#fff7d0", "#d49d38"][Math.floor(Math.random() * 4)] }); }
-  tick() { this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight); this.items = this.items.filter((item) => item.life > 0); for (const item of this.items) { item.x += item.vx; item.y += item.vy; item.vy += 0.18; item.life -= 1; this.ctx.globalAlpha = Math.max(item.life / 100, 0); this.ctx.fillStyle = item.color; this.ctx.fillRect(item.x, item.y, item.size, item.size * 0.55); } this.ctx.globalAlpha = 1; requestAnimationFrame(() => this.tick()); }
-}
