@@ -265,9 +265,7 @@ function randomRoom() {
 }
 
 function defaultServerUrl() {
-  if (location.protocol === "file:") return "wss://your-domain.example/ws";
-  const scheme = location.protocol === "https:" ? "wss" : "ws";
-  return `${scheme}://${location.host}/ws`;
+  return "wss://black-jack-21-1.onrender.com/ws";
 }
 
 function normalizeServerUrl(value) {
