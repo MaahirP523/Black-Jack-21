@@ -1,3 +1,4 @@
+```python
 from __future__ import annotations
 
 import base64
@@ -357,10 +358,26 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
+    if not os.path.exists(ROOT):
+        print(f"Public folder not found: {ROOT}")
+        exit(1)
+
     os.chdir(ROOT)
+
     server = ThreadingHTTPServer((HOST, PORT), Handler)
-    print(f"Aurum 21 multiplayer server running on http://127.0.0.1:{PORT}")
+
+    print(f"Aurum 21 multiplayer server running on port {PORT}")
+
     try:
         server.serve_forever()
     except KeyboardInterrupt:
         server.server_close()
+```
+
+Replace your existing `server.py` with this version, then run:
+
+```powershell
+git add .
+git commit -m "Fix Render startup"
+git push
+```
