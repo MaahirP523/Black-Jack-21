@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurum 21 Multiplayer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+    <main class="app multiplayer-app">
+      <section class="screen table-screen active" aria-label="Multiplayer Blackjack">
+        <header class="topbar glass-panel">
+          <button id="back-home" class="icon-button" aria-label="Back to menu">←</button>
+          <div>
+            <p class="eyebrow">Online room</p>
+            <h2>Aurum 21 Multiplayer</h2>
+          </div>
+          <div class="balance-pill">
+            <span>Local chips</span>
+            <strong id="balance-display">10,000</strong>
+          </div>
+        </header>
+
+        <section id="connect-panel" class="multiplayer-panel glass-panel">
+          <div>
+            <p class="eyebrow">Fictional multiplayer</p>
+            <h1>Join a shared Blackjack table</h1>
+            <p>Host this server yourself, share the room code, and play for entertainment-only virtual chips.</p>
+          </div>
+          <label>Player name <input id="player-name" maxlength="16" placeholder="Player" /></label>
+          <label>Room code <input id="room-code" maxlength="8" placeholder="A21" /></label>
+          <label>Server URL <input id="server-url" placeholder="wss://your-domain.example/ws" /></label>
+          <div class="connection-actions">
+            <button id="create-room" class="primary-button">Create Room</button>
+            <button id="join-room" class="secondary-button">Join Room</button>
+          </div>
+          <p id="connection-status" class="connection-status">Server: not connected</p>
+        </section>
+
+        <div id="multiplayer-table" class="table-shell hidden">
+          <section class="dealer-zone hand-zone" aria-label="Dealer hand">
+            <div class="zone-header">
+              <h3>Dealer</h3>
+              <span id="dealer-score" class="score-pill">0</span>
+            </div>
+            <div id="dealer-hand" class="hand"></div>
+          </section>
+
+          <section class="felt-table" aria-label="Shared betting table">
+            <div class="table-glow"></div>
+            <div id="status-banner" class="status-banner">Connect to start</div>
+            <div id="betting-zone" class="betting-zone">
+              <div id="chip-rack" class="chip-rack" aria-label="Chip denominations"></div>
+              <div class="bet-summary">
+                <span>Your bet</span>
+                <strong id="bet-display">0</strong>
+              </div>
+              <div class="bet-buttons">
+                <button id="clear-bet" class="mini-button">Clear</button>
+                <button id="ready-button" class="primary-button">Ready</button>
+              </div>
+            </div>
+            <div id="action-panel" class="action-panel hidden">
+              <button id="hit-button" class="secondary-button">Hit</button>
+              <button id="stand-button" class="secondary-button">Stand</button>
+              <button id="double-button" class="secondary-button">Double</button>
+              <button id="split-button" class="secondary-button">Split</button>
+              <button id="insurance-button" class="secondary-button">Insurance</button>
+            </div>
+            <button id="next-round" class="primary-button hidden">Next Round</button>
+          </section>
+
+          <section class="player-zone hand-zone" aria-label="Players">
+            <div class="zone-header">
+              <h3>Players</h3>
+              <span id="room-display" class="score-pill">----</span>
+            </div>
+            <div id="players-grid" class="players-grid"></div>
+          </section>
+        </div>
+
+        <footer class="disclaimer">FOR ENTERTAINMENT PURPOSES ONLY - Fictional chips only - No payments, crypto, withdrawals, or gambling APIs</footer>
+      </section>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name"> J21</string>
+    <string name="title_activity_main"> J21</string>
+    <string name="package_name">com.aurum21.blackjack</string>
+    <string name="custom_url_scheme">com.aurum21.blackjack</string>
+</resources>
