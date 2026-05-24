@@ -1,4 +1,4 @@
-```python
+
 from __future__ import annotations
 
 import base64
@@ -372,12 +372,3 @@ if __name__ == "__main__":
         server.serve_forever()
     except KeyboardInterrupt:
         server.server_close()
-```
-
-Replace your existing `server.py` with this version, then run:
-
-```powershell
-git add .
-git commit -m "Fix Render startup"
-git push
-```
